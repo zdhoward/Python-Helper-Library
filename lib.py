@@ -2,6 +2,8 @@ def Debug(func):
     ''' @Debug Decorator '''
     from functools import wraps
     from colorama import Fore
+    ### Usage: @Debug
+    ### A Debug decorator to debug any part of code on the fly
     @wraps(func)
     def wrapper_debug(*args, **kwargs):
         args_repr = [repr(a) for a in args]
@@ -14,6 +16,11 @@ def Debug(func):
     return wrapper_debug
 
 def header(text=""):
+    ### Usage: print(header('HEADER NAME'))
+    ### Returns a text block with the following config
+    ### ==========
+    ### ||  IE  ||
+    ### ==========
     width = 40
     top_dressing = '='
     bot_dressing = '='
@@ -46,6 +53,8 @@ def checkdir(dir, new_folder):
         return False
 
 def checkcommand(command):
+    ### Usage: if (checkcommand('ffmpeg')):
+    ### Does a version check, calling the command without any output, returns True or False
     from subprocess import run, DEVNULL
     if command == 'ffmpeg':
         cmd = ['ffmpeg', '-version', '-loglevel quiet']
