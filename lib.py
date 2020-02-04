@@ -81,6 +81,8 @@ def check_command(command):
 
 
 def wait_for_http_callback(_port=9000, _host="127.0.0.1"):
+    ### Usage: response = wait_for_http_callback(8080)
+    ### Hosts a lightweight http server on a specified port and awaits 1 response before closing down and returning the response
     import cherrypy
 
     if _host == "localhost":
